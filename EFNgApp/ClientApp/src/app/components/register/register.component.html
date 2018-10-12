@@ -1,0 +1,45 @@
+<h1>{{title}}</h1>
+<h3>Register</h3>
+<hr />
+<form [formGroup]="userForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Username</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="username">
+    </div>
+    <span class="text-danger" *ngIf="username.invalid && formDir.submitted">
+      Username is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Password</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="password">
+    </div>
+    <span class="text-danger" *ngIf="password.invalid && formDir.submitted">
+      Password is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12">EmailAddress</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="emailaddress">
+    </div>
+    <span class="text-danger" *ngIf="emailaddress.invalid && formDir.submitted">
+      EmailAddress is required
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12">Role</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="role">
+    </div>
+    <span class="text-danger" *ngIf="role.invalid && formDir.submitted">
+      Role is required
+    </span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Save</button>
+    <button class="btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>
